@@ -10,7 +10,6 @@
 $strings = array(
     'language_name' => 'English',
     'language' => 'Language',
-
     // Log in:
     'log_in_to_phpci' => 'Log in to PHPCI',
     'login_error' => 'Incorrect email address or password',
@@ -35,15 +34,12 @@ Otherwise, please ignore this email and no action will be taken.
 Thank you,
 
 PHPCI',
-
     'reset_email_title' => 'PHPCI Password Reset for %s',
     'reset_invalid' => 'Invalid password reset request.',
     'email_address' => 'Email Address',
     'login' => 'Login / Email Address',
     'password' => 'Password',
     'log_in' => 'Log in',
-
-
     // Top Nav
     'toggle_navigation' => 'Toggle Navigation',
     'n_builds_pending' => '%d builds pending',
@@ -53,7 +49,6 @@ PHPCI',
     'branch_x' => 'Branch: %s',
     'created_x' => 'Created: %s',
     'started_x' => 'Started: %s',
-
     // Sidebar
     'hello_name' => 'Hello, %s',
     'dashboard' => 'Dashboard',
@@ -66,7 +61,6 @@ PHPCI',
     'build_now' => 'Build Now',
     'edit_project' => 'Edit Project',
     'delete_project' => 'Delete Project',
-
     // Project Summary:
     'no_builds_yet' => 'No builds yet!',
     'x_of_x_failed' => '%d out of the last %d builds failed.',
@@ -78,7 +72,6 @@ PHPCI',
     'last_failed_build' => ' The last failed build was %s.',
     'never_failed_build' => ' This project has never failed a build.',
     'view_project' => 'View Project',
-
     // Timeline:
     'latest_builds' => 'Latest Builds',
     'pending' => 'Pending',
@@ -87,7 +80,6 @@ PHPCI',
     'successful' => 'Successful',
     'failed' => 'Failed',
     'manual_build' => 'Manual Build',
-
     // Add/Edit Project:
     'new_project' => 'New Project',
     'project_x_not_found' => 'Project with ID %d does not exist.',
@@ -101,12 +93,10 @@ PHPCI',
     'gitlab' => 'GitLab',
     'remote' => 'Remote URL',
     'local' => 'Local Path',
-    'hg'    => 'Mercurial',
-    'svn'   => 'Subversion',
-
+    'hg' => 'Mercurial',
+    'svn' => 'Subversion',
     'where_hosted' => 'Where is your project hosted?',
     'choose_github' => 'Choose a GitHub repository:',
-
     'repo_name' => 'Repository Name / URL (Remote) or Path (Local)',
     'project_title' => 'Project Title',
     'project_private_key' => 'Private key to use to access repository
@@ -114,17 +104,16 @@ PHPCI',
     'build_config' => 'PHPCI build config for this project
                                 (if you cannot add a phpci.yml file in the project repository)',
     'default_branch' => 'Default branch name',
+    'config_filename' => 'Config filename',
     'allow_public_status' => 'Enable public status page and image for this project?',
     'archived' => 'Archived',
     'save_project' => 'Save Project',
-
     'error_mercurial' => 'Mercurial repository URL must be start with http:// or https://',
     'error_remote' => 'Repository URL must be start with git://, http:// or https://',
     'error_gitlab' => 'GitLab Repository name must be in the format "user@domain.tld:owner/repo.git"',
     'error_github' => 'Repository name must be in the format "owner/repo"',
     'error_bitbucket' => 'Repository name must be in the format "owner/repo"',
     'error_path' => 'The path you specified does not exist.',
-
     // View Project:
     'all_branches' => 'All Branches',
     'builds' => 'Builds',
@@ -138,31 +127,23 @@ PHPCI',
     'next_link' => 'Next &raquo;',
     'public_key' => 'Public Key',
     'delete_build' => 'Delete Build',
-
     'webhooks' => 'Webhooks',
     'webhooks_help_github' => 'To automatically build this project when new commits are pushed, add the URL below
                                 as a new "Webhook" in the <a href="https://github.com/%s/settings/hooks">Webhooks
                                 and Services</a>  section of your GitHub repository.',
-
     'webhooks_help_gitlab' => 'To automatically build this project when new commits are pushed, add the URL below
                                 as a "WebHook URL" in the Web Hooks section of your GitLab repository.',
-
     'webhooks_help_bitbucket' => 'To automatically build this project when new commits are pushed, add the URL below
                                 as a "POST" service in the
                                 <a href="https://bitbucket.org/%s/admin/services">
                                 Services</a> section of your Bitbucket repository.',
-
     // View Build
     'build_x_not_found' => 'Build with ID %d does not exist.',
     'build_n' => 'Build %d',
     'rebuild_now' => 'Rebuild Now',
-
-
     'committed_by_x' => 'Committed by %s',
     'commit_id_x' => 'Commit: %s',
-
     'chart_display' => 'This chart will display once the build has completed.',
-
     'build' => 'Build',
     'lines' => 'Lines',
     'comment_lines' => 'Comment Lines',
@@ -179,7 +160,6 @@ PHPCI',
     'phpunit_errors' => 'PHPUnit Errors',
     'phpdoccheck_warnings' => 'Missing Docblocks',
     'issues' => 'Issues',
-
     'codeception' => 'Codeception',
     'phpcpd' => 'PHP Copy/Paste Detector',
     'phpcs' => 'PHP Code Sniffer',
@@ -189,13 +169,11 @@ PHPCI',
     'phpunit' => 'PHP Unit',
     'technical_debt' => 'Technical Debt',
     'behat' => 'Behat',
-
     'codeception_feature' => 'Feature',
     'codeception_suite' => 'Suite',
     'codeception_time' => 'Time',
     'codeception_synopsis' => '<strong>%1$d</strong> tests carried out in <strong>%2$f</strong> seconds.
                                <strong>%3$d</strong> failures.',
-
     'file' => 'File',
     'line' => 'Line',
     'class' => 'Class',
@@ -219,7 +197,6 @@ PHPCI',
     'test_error' => 'Errors: %d',
     'test_todo' => 'Todos: %d',
     'test_total' => '%d test(s)',
-
     // Users
     'name' => 'Name',
     'password_change' => 'Password (leave blank if you don\'t want to change)',
@@ -236,7 +213,6 @@ PHPCI',
     'user_n_not_found' => 'User with ID %d does not exist.',
     'is_user_admin' => 'Is this user an administrator?',
     'save_user' => 'Save User',
-
     // Settings:
     'settings_saved' => 'Your settings have been saved.',
     'settings_check_perms' => 'Your settings could not be saved, check the permissions of your config.yml file.',
@@ -252,14 +228,11 @@ PHPCI',
     'github_where_to_find' => 'Where to find these...',
     'github_where_help' => 'If you own the application you would like to use, you can find this information within your
                             <a href="https://github.com/settings/applications">applications</a> settings area.',
-
     'email_settings' => 'Email Settings',
     'email_settings_help' => 'Before PHPCI can send build status emails,
                                 you need to configure your SMTP settings below.',
-
     'application_id' => 'Application ID',
     'application_secret' => 'Application Secret',
-
     'smtp_server' => 'SMTP Server',
     'smtp_port' => 'SMTP Port',
     'smtp_username' => 'SMTP Username',
@@ -270,14 +243,12 @@ PHPCI',
     'none' => 'None',
     'ssl' => 'SSL',
     'tls' => 'TLS',
-
     'failed_after' => 'Consider a build failed after',
     '5_mins' => '5 Minutes',
     '15_mins' => '15 Minutes',
     '30_mins' => '30 Minutes',
     '1_hour' => '1 Hour',
     '3_hours' => '3 Hours',
-
     // Plugins
     'cannot_update_composer' => 'PHPCI cannot update composer.json for you as it is not writable.',
     'x_has_been_removed' => '%s has been removed.',
@@ -294,7 +265,6 @@ PHPCI',
     'remove' => 'Remove &raquo;',
     'search_packagist_for_more' => 'Search Packagist for more packages',
     'search' => 'Search &raquo;',
-
     // Summary plugin
     'build-summary' => 'Summary',
     'stage' => 'Stage',
@@ -305,7 +275,6 @@ PHPCI',
     'stage_complete' => 'Complete',
     'stage_success' => 'Success',
     'stage_failure' => 'Failure',
-
     // Installer
     'installation_url' => 'PHPCI Installation URL',
     'db_host' => 'Database Host',
@@ -330,7 +299,6 @@ PHPCI',
     'enter_email' => 'Admin Email: ',
     'enter_password' => 'Admin Password: ',
     'enter_phpci_url' => 'Your PHPCI URL ("http://phpci.local" for example): ',
-
     'enter_db_host' => 'Please enter your MySQL host [localhost]: ',
     'enter_db_name' => 'Please enter your MySQL database name [phpci]: ',
     'enter_db_user' => 'Please enter your MySQL username [phpci]: ',
@@ -341,13 +309,11 @@ PHPCI',
     'failed_to_create' => 'PHPCI failed to create your admin account.',
     'config_exists' => 'The PHPCI config file exists and is not empty.',
     'update_instead' => 'If you were trying to update PHPCI, please use phpci:update instead.',
-
     // Update
     'update_phpci' => 'Update the database to reflect modified models.',
     'updating_phpci' => 'Updating PHPCI database: ',
     'not_installed' => 'PHPCI does not appear to be installed.',
     'install_instead' => 'Please install PHPCI via phpci:install instead.',
-
     // Poll Command
     'poll_github' => 'Poll GitHub to check if we need to start a build.',
     'no_token' => 'No GitHub token found',
@@ -356,24 +322,20 @@ PHPCI',
     'last_commit_is' => 'Last commit to GitHub for %s is %s',
     'adding_new_build' => 'Last commit is different to database, adding new build.',
     'finished_processing_builds' => 'Finished processing builds.',
-
     // Create Admin
     'create_admin_user' => 'Create an admin user',
     'incorrect_format' => 'Incorrect format',
-
     // Create Build Command
     'create_build_project' => 'Create a build for a project',
     'project_id_argument' => 'A project ID',
     'commit_id_option' => 'Commit ID to build',
     'branch_name_option' => 'Branch to build',
-
     // Run Command
     'run_all_pending' => 'Run all pending PHPCI builds.',
     'finding_builds' => 'Finding builds to process',
     'found_n_builds' => 'Found %d builds',
     'skipping_build' => 'Skipping Build %d - Project build already in progress.',
     'marked_as_failed' => 'Build %d marked as failed due to timeout.',
-
     // Builder
     'missing_phpci_yml' => 'This project does not contain a phpci.yml file, or it is empty.',
     'build_success' => 'BUILD SUCCESS',
@@ -390,7 +352,6 @@ PHPCI',
     'plugin_missing' => 'Plugin does not exist: %s',
     'tap_version' => 'TapParser only supports TAP version 13',
     'tap_error' => 'Invalid TAP string, number of tests does not match specified test count.',
-
     // Build Plugins:
     'no_tests_performed' => 'No tests have been performed.',
     'could_not_find' => 'Could not find %s',
@@ -414,5 +375,5 @@ PHPCI',
     'build_file_missing' => 'Specified build file does not exist.',
     'property_file_missing' => 'Specified property file does not exist.',
     'could_not_process_report' => 'Could not process the report generated by this tool.',
-    'shell_not_enabled' => 'The shell plugin is not enabled. Please enable it via config.yml.'
+    'shell_not_enabled' => 'The shell plugin is not enabled. Please enable it via config.yml.',
 );

@@ -15,12 +15,12 @@ use PHPCI\Builder;
 use Symfony\Component\Yaml\Parser as YamlParser;
 
 /**
-* Build Model
-* @uses         PHPCI\Model\Base\BuildBase
-* @author       Dan Cryer <dan@block8.co.uk>
-* @package      PHPCI
-* @subpackage   Core
-*/
+ * Build Model
+ * @uses         PHPCI\Model\Base\BuildBase
+ * @author       Dan Cryer <dan@block8.co.uk>
+ * @package      PHPCI
+ * @subpackage   Core
+ */
 class Build extends BuildBase
 {
     const STATUS_NEW = 0;
@@ -31,16 +31,16 @@ class Build extends BuildBase
     public $currentBuildPath = null;
 
     /**
-    * Get link to commit from another source (i.e. Github)
-    */
+     * Get link to commit from another source (i.e. Github)
+     */
     public function getCommitLink()
     {
         return '#';
     }
 
     /**
-    * Get link to branch from another source (i.e. Github)
-    */
+     * Get link to branch from another source (i.e. Github)
+     */
     public function getBranchLink()
     {
         return '#';
@@ -56,8 +56,8 @@ class Build extends BuildBase
     }
 
     /**
-    * Send status updates to any relevant third parties (i.e. Github)
-    */
+     * Send status updates to any relevant third parties (i.e. Github)
+     */
     public function sendStatusPostback()
     {
         return;
@@ -99,14 +99,13 @@ class Build extends BuildBase
     {
         $build_config = null;
 
-        // Try phpci.yml first:
-        if (is_file($buildPath . '/phpci.yml')) {
-            $build_config = file_get_contents($buildPath . '/phpci.yml');
-        }
-
         // Try getting the project build config from the database:
-        if (empty($build_config)) {
-            $build_config = $this->getProject()->getBuildConfig();
+        $build_config = $this->getProject()->getBuildConfig();
+
+        $fileConfig = $this->getProject()->getFileConfig();
+        $fileConfig = !empty($fileConfig) ? $fileConfig : "phpci.yml";
+        if (empty($build_config) && is_file($buildPath . '/' . $fileConfig)) {
+            $build_config = file_get_contents($buildPath . '/' . $fileConfig);
         }
 
         // Fall back to zero config plugins:

@@ -10,7 +10,6 @@
 $strings = array(
     'language_name' => 'Pусский',
     'language' => 'язык',
-
     // Log in:
     'log_in_to_phpci' => 'Войти в PHPCI',
     'login_error' => 'Неправильный email или пароль',
@@ -34,15 +33,12 @@ $strings = array(
 Спасибо,
 
 PHPCI',
-
     'reset_email_title' => 'Сброс пароля PHPCI для %s',
     'reset_invalid' => 'Некорректный запрос на сброс пароля.',
     'email_address' => 'Email',
     'login' => 'Логин / Email',
     'password' => 'Пароль',
     'log_in' => 'Войти',
-
-
     // Top Nav
     'toggle_navigation' => 'Скрыть/показать панель навигации',
     'n_builds_pending' => '%d сборок ожидает',
@@ -52,7 +48,6 @@ PHPCI',
     'branch_x' => 'Ветка: %s',
     'created_x' => 'Создан: %s',
     'started_x' => 'Запущен: %s',
-
     // Sidebar
     'hello_name' => 'Привет, %s',
     'dashboard' => 'Панель управления',
@@ -65,7 +60,6 @@ PHPCI',
     'build_now' => 'Собрать',
     'edit_project' => 'Редактировать проект',
     'delete_project' => 'Удалить проект',
-
     // Project Summary:
     'no_builds_yet' => 'Нет сборок!',
     'x_of_x_failed' => '%d из последних %d сборок были провалены.',
@@ -77,7 +71,6 @@ PHPCI',
     'last_failed_build' => ' Последней проваленной сборкой была %s.',
     'never_failed_build' => ' У этого проекта никогда не было проваленных сборок.',
     'view_project' => 'Обзор проекта',
-
     // Timeline:
     'latest_builds' => 'Последние сборки',
     'pending' => 'Ожидает',
@@ -86,7 +79,6 @@ PHPCI',
     'successful' => 'Успешна',
     'failed' => 'Провалена',
     'manual_build' => 'Запущена вручную',
-
     // Add/Edit Project:
     'new_project' => 'Новый проект',
     'project_x_not_found' => 'Проекта с ID %d не существует.',
@@ -99,12 +91,10 @@ PHPCI',
     'gitlab' => 'GitLab',
     'remote' => 'Внешний URL',
     'local' => 'Локальный путь',
-    'hg'    => 'Mercurial',
-    'svn'   => 'Subversion',
-
+    'hg' => 'Mercurial',
+    'svn' => 'Subversion',
     'where_hosted' => 'Расположение проекта',
     'choose_github' => 'Выберите GitHub репозиторий:',
-
     'repo_name' => 'Репозиторий / Внешний URL / Локальный путь',
     'project_title' => 'Название проекта',
     'project_private_key' => 'Приватный ключ для доступа к репозиторию
@@ -112,17 +102,16 @@ PHPCI',
     'build_config' => 'Конфигурация сборки проекта для PHPCI
                                 (если вы не добавили файл phpci.yml в репозиторий вашего проекта)',
     'default_branch' => 'Ветка по умолчанию',
+    'config_filename' => 'Название файла конфигурации',
     'allow_public_status' => 'Разрешить публичный статус и изображение (статуса) для проекта',
     'archived' => 'Запакован',
     'save_project' => 'Сохранить проект',
-
     'error_mercurial' => 'URL репозитория Mercurial должен начинаться с http:// или https://',
     'error_remote' => 'URL репозитория должен начинаться с git://, http:// или https://',
     'error_gitlab' => 'Имя репозитория в GitLab должно иметь формат: "user@domain.tld:owner/repo.git"',
     'error_github' => 'Имя репозитория должно иметь формат: "owner/repo"',
     'error_bitbucket' => 'Имя репозитория должно иметь формат: "owner/repo"',
     'error_path' => 'Пути, который вы указали, не существует.',
-
     // View Project:
     'all_branches' => 'Все ветки',
     'builds' => 'Сборки',
@@ -136,28 +125,20 @@ PHPCI',
     'next_link' => 'След. &raquo;',
     'public_key' => 'Публичный ключ',
     'delete_build' => 'Удалить сборку',
-
     'webhooks' => 'Webhooks',
     'webhooks_help_github' => 'Чтобы Автоматически собирать этот проект при публикации новых коммитов, добавьте URL ниже в качестве нового хука в разделе настроек <a href="https://github.com/%s/settings/hooks">Webhooks
                                 and Services</a> вашего GitHub репозитория.',
-
     'webhooks_help_gitlab' => 'Чтобы Автоматически собирать этот проект при публикации новых коммитов, добавьте URL ниже в качестве "WebHook URL"
                                 в разделе "Web Hooks" вашего GitLab репозитория.',
-
     'webhooks_help_bitbucket' => 'Чтобы Автоматически собирать этот проект при публикации новых коммитов, добавьте URL ниже как "POST" сервис в разделе <a href="https://bitbucket.org/%s/admin/services">
                                 Services</a> вашего Bitbucket репозитория.',
-
     // View Build
     'build_x_not_found' => 'Сборки с ID %d не существует.',
     'build_n' => 'Сборка %d',
     'rebuild_now' => 'Пересобрать сейчас',
-
-
     'committed_by_x' => 'Отправил %s',
     'commit_id_x' => 'Коммит: %s',
-
     'chart_display' => 'Этот график будет показан после окончания сборки.',
-
     'build' => 'Сборка',
     'lines' => 'Строк',
     'comment_lines' => 'Строк комментариев',
@@ -174,7 +155,6 @@ PHPCI',
     'phpunit_errors' => 'Ошибки PHPUnit',
     'phpdoccheck_warnings' => 'Пропущенные Docblocks',
     'issues' => 'Проблемы',
-
     'codeception' => 'Codeception',
     'phpcpd' => 'PHP Copy/Paste Detector',
     'phpcs' => 'PHP Code Sniffer',
@@ -184,7 +164,6 @@ PHPCI',
     'phpunit' => 'PHP Unit',
     'technical_debt' => 'Технические долги',
     'behat' => 'Behat',
-
     'file' => 'Файл',
     'line' => 'Строка',
     'class' => 'Класс',
@@ -208,7 +187,6 @@ PHPCI',
     'test_error' => 'Errors: %d',
     'test_todo' => 'Todos: %d',
     'test_total' => '%d test(s)',
-
     // Users
     'name' => 'Имя',
     'password_change' => 'Пароль (оставьте поле пустым, если не собираетесь менять его)',
@@ -225,7 +203,6 @@ PHPCI',
     'user_n_not_found' => 'Пользователя с ID %d не существует.',
     'is_user_admin' => 'Этот пользователь является администратором',
     'save_user' => 'Сохранить пользователя',
-
     // Settings:
     'settings_saved' => 'Ваши настройки были сохранены.',
     'settings_check_perms' => 'Ваши настройки не могут быть сохранены, проверьте права на файл настроек config.yml.',
@@ -240,14 +217,11 @@ PHPCI',
     'github_where_to_find' => 'Где это найти...',
     'github_where_help' => 'Если вы владелец приложения, которое вы хотели бы использовать, то вы можете найти информацию об этом в разделе
     <a href="https://github.com/settings/applications">applications</a> настроек.',
-
     'email_settings' => 'Настройки email',
     'email_settings_help' => 'Перед тем, как PHPCI начнет отсылать статус сборок по почте,
                                 вам необходимо настроить параметры SMTP ниже.',
-
     'application_id' => 'ID приложения',
     'application_secret' => 'Секретный ключ приложения',
-
     'smtp_server' => 'SMTP сервер',
     'smtp_port' => 'SMTP порт',
     'smtp_username' => 'SMTP пользователь',
@@ -258,14 +232,12 @@ PHPCI',
     'none' => 'Нет',
     'ssl' => 'SSL',
     'tls' => 'TLS',
-
     'failed_after' => 'Признать сборку проваленной по прошествии',
     '5_mins' => '5 минут',
     '15_mins' => '15 минут',
     '30_mins' => '30 минут',
     '1_hour' => '1 часа',
     '3_hours' => '3 часов',
-
     // Plugins
     'cannot_update_composer' => 'PHPCI не может обновить composer.json, если он недоступен на запись.',
     'x_has_been_removed' => '%s был удален.',
@@ -281,7 +253,6 @@ PHPCI',
     'remove' => 'Удалить &raquo;',
     'search_packagist_for_more' => 'Искать на Packagist',
     'search' => 'Искать &raquo;',
-
     // Installer
     'installation_url' => 'URL-адрес PHPCI для установки',
     'db_host' => 'Хост базы данных',
@@ -306,7 +277,6 @@ PHPCI',
     'enter_email' => 'Email администратора: ',
     'enter_password' => 'Пароль администратора: ',
     'enter_phpci_url' => 'URL-адрес вашего PHPCI (например: "http://phpci.local"): ',
-
     'enter_db_host' => 'Пожалуйста, введите хост MySQL [localhost]: ',
     'enter_db_name' => 'Пожалуйста, введите имя базы данных MySQL [phpci]: ',
     'enter_db_user' => 'Пожалуйста, введите пользователя MySQL [phpci]: ',
@@ -317,13 +287,11 @@ PHPCI',
     'failed_to_create' => 'PHPCI не удалось создать аккаунт администратора.',
     'config_exists' => 'Файл конфигурации PHPCI уже существует, и он не пустой.',
     'update_instead' => 'Если вы собираетесь обновить PHPCI, пожалуйста, используйте команду phpci:update.',
-
     // Update
     'update_phpci' => 'Обновите базу данных с учетом обновленных моделей.',
     'updating_phpci' => 'Обновление базы данных PHPCI: ',
     'not_installed' => 'PHPCI не может быть установлен.',
     'install_instead' => 'Пожалуйста, установите PHPCI с помощью команды phpci:install.',
-
     // Poll Command
     'poll_github' => 'Опрос GitHub для проверки запуска сборки.',
     'no_token' => 'GitHub токен не найден',
@@ -332,24 +300,20 @@ PHPCI',
     'last_commit_is' => 'Последний коммит на GitHub для %s - %s',
     'adding_new_build' => 'Последний коммит имеет различия с базой данных, создана сборка.',
     'finished_processing_builds' => 'Процесс сборки завершен.',
-
     // Create Admin
     'create_admin_user' => 'Добавить аккаунт администратора',
     'incorrect_format' => 'Неверный формат',
-
     // Create Build Command
     'create_build_project' => 'Создать сборку проекта',
     'project_id_argument' => 'ID проекта',
     'commit_id_option' => 'ID коммита для сборки',
     'branch_name_option' => 'Ветка для сборки',
-
     // Run Command
     'run_all_pending' => 'Запустить все ожидающие PHPCI сборки.',
     'finding_builds' => 'Поиск сборок для запуска',
     'found_n_builds' => 'Найдено сборок: %d',
     'skipping_build' => 'Сборка %d пропущена - Сборка проекта уже идет.',
     'marked_as_failed' => 'Сборка %d отмечена как неудавшаяся из-за превышения лимита времени.',
-
     // Builder
     'missing_phpci_yml' => 'Этот проект не содержит файла phpci.yml, или файл пустой.',
     'build_success' => 'СБОРКА УСПЕШНА',
@@ -366,7 +330,6 @@ PHPCI',
     'plugin_missing' => 'Плагина не существует: %s',
     'tap_version' => 'TapParser поддерживает только TAP версии 13',
     'tap_error' => 'Некорректная TAP-строка, количество тестов не совпадает с заявленным.',
-
     // Build Plugins:
     'no_tests_performed' => 'Никакие тесты не были запущены.',
     'could_not_find' => 'Не удается найти %s',
@@ -390,5 +353,5 @@ PHPCI',
     'build_file_missing' => 'Указанного файла сборки не существует.',
     'property_file_missing' => 'Указанного файла сборки не существует.',
     'could_not_process_report' => 'Невозможно обработать отчет этой утилиты.',
-    'shell_not_enabled' => 'Плагин shell не включен. Пожалуйста, включите его в файле config.yml.'
+    'shell_not_enabled' => 'Плагин shell не включен. Пожалуйста, включите его в файле config.yml.',
 );

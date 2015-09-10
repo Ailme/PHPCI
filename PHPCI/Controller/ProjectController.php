@@ -22,11 +22,12 @@ use PHPCI\Service\BuildService;
 use PHPCI\Service\ProjectService;
 
 /**
-* Project Controller - Allows users to create, edit and view projects.
-* @author       Dan Cryer <dan@block8.co.uk>
-* @package      PHPCI
-* @subpackage   Web
-*/
+ * Project Controller - Allows users to create, edit and view projects.
+ *
+ * @author       Dan Cryer <dan@block8.co.uk>
+ * @package      PHPCI
+ * @subpackage   Web
+ */
 class ProjectController extends PHPCI\Controller
 {
     /**
@@ -61,8 +62,8 @@ class ProjectController extends PHPCI\Controller
     }
 
     /**
-    * View a specific project.
-    */
+     * View a specific project.
+     */
     public function view($projectId)
     {
         $branch = $this->getParam('branch', '');
@@ -73,23 +74,24 @@ class ProjectController extends PHPCI\Controller
         }
 
         $per_page = 10;
-        $page     = $this->getParam('p', 1);
-        $builds   = $this->getLatestBuildsHtml($projectId, urldecode($branch), (($page - 1) * $per_page));
-        $pages    = $builds[1] == 0 ? 1 : ceil($builds[1] / $per_page);
+        $page = $this->getParam('p', 1);
+        $builds = $this->getLatestBuildsHtml($projectId, urldecode($branch), (($page - 1) * $per_page));
+        $pages = $builds[1] == 0 ? 1 : ceil($builds[1] / $per_page);
 
         if ($page > $pages) {
             $response = new b8\Http\Response\RedirectResponse();
-            $response->setHeader('Location', PHPCI_URL.'project/view/'.$projectId);
+            $response->setHeader('Location', PHPCI_URL . 'project/view/' . $projectId);
+
             return $response;
         }
 
-        $this->view->builds   = $builds[0];
-        $this->view->total    = $builds[1];
-        $this->view->project  = $project;
-        $this->view->branch   = urldecode($branch);
+        $this->view->builds = $builds[0];
+        $this->view->total = $builds[1];
+        $this->view->project = $project;
+        $this->view->branch = urldecode($branch);
         $this->view->branches = $this->projectStore->getKnownBranches($projectId);
-        $this->view->page     = $page;
-        $this->view->pages    = $pages;
+        $this->view->page = $page;
+        $this->view->pages = $pages;
 
         $this->layout->title = $project->getTitle();
         $this->layout->subtitle = $this->view->branch;
@@ -98,8 +100,8 @@ class ProjectController extends PHPCI\Controller
     }
 
     /**
-    * Create a new pending build for a project.
-    */
+     * Create a new pending build for a project.
+     */
     public function build($projectId, $branch = '')
     {
         /* @var \PHPCI\Model\Project $project */
@@ -117,13 +119,14 @@ class ProjectController extends PHPCI\Controller
         $build = $this->buildService->createBuild($project, null, urldecode($branch), $email);
 
         $response = new b8\Http\Response\RedirectResponse();
-        $response->setHeader('Location', PHPCI_URL.'build/view/' . $build->getId());
+        $response->setHeader('Location', PHPCI_URL . 'build/view/' . $build->getId());
+
         return $response;
     }
 
     /**
-    * Delete a project.
-    */
+     * Delete a project.
+     */
     public function delete($projectId)
     {
         $this->requireAdmin();
@@ -133,12 +136,13 @@ class ProjectController extends PHPCI\Controller
 
         $response = new b8\Http\Response\RedirectResponse();
         $response->setHeader('Location', PHPCI_URL);
+
         return $response;
     }
 
     /**
-    * AJAX get latest builds.
-    */
+     * AJAX get latest builds.
+     */
     public function builds($projectId)
     {
         $branch = $this->getParam('branch', '');
@@ -146,15 +150,17 @@ class ProjectController extends PHPCI\Controller
 
         $this->response->disableLayout();
         $this->response->setContent($builds[0]);
+
         return $this->response;
     }
 
     /**
      * Render latest builds for project as HTML table.
      *
-     * @param $projectId
+     * @param        $projectId
      * @param string $branch A urldecoded branch name.
-     * @param int $start
+     * @param int    $start
+     *
      * @return array
      */
     protected function getLatestBuildsHtml($projectId, $branch = '', $start = 0)
@@ -172,14 +178,14 @@ class ProjectController extends PHPCI\Controller
             $build = BuildFactory::getBuild($build);
         }
 
-        $view->builds   = $builds['items'];
+        $view->builds = $builds['items'];
 
         return array($view->render(), $builds['count']);
     }
 
     /**
-    * Add a new project. Handles both the form, and processing.
-    */
+     * Add a new project. Handles both the form, and processing.
+     */
     public function add()
     {
         $this->layout->title = Lang::get('add_project');
@@ -194,7 +200,7 @@ class ProjectController extends PHPCI\Controller
             $sshKey = new SshKey();
             $key = $sshKey->generate();
 
-            $values['key']    = $key['private_key'];
+            $values['key'] = $key['private_key'];
             $values['pubkey'] = $key['public_key'];
             $pub = $key['public_key'];
         }
@@ -202,11 +208,11 @@ class ProjectController extends PHPCI\Controller
         $form = $this->projectForm($values);
 
         if ($method != 'POST' || ($method == 'POST' && !$form->validate())) {
-            $view           = new b8\View('ProjectForm');
-            $view->type     = 'add';
-            $view->project  = null;
-            $view->form     = $form;
-            $view->key      = $pub;
+            $view = new b8\View('ProjectForm');
+            $view->type = 'add';
+            $view->project = null;
+            $view->form = $form;
+            $view->key = $pub;
 
             return $view->render();
         } else {
@@ -225,14 +231,15 @@ class ProjectController extends PHPCI\Controller
             $project = $this->projectService->createProject($title, $type, $reference, $options);
 
             $response = new b8\Http\Response\RedirectResponse();
-            $response->setHeader('Location', PHPCI_URL.'project/view/' . $project->getId());
+            $response->setHeader('Location', PHPCI_URL . 'project/view/' . $project->getId());
+
             return $response;
         }
     }
 
     /**
-    * Edit a project. Handles both the form and processing.
-    */
+     * Edit a project. Handles both the form and processing.
+     */
     public function edit($projectId)
     {
         $this->requireAdmin();
@@ -253,7 +260,7 @@ class ProjectController extends PHPCI\Controller
 
         if ($values['type'] == "gitlab") {
             $accessInfo = $project->getAccessInformation();
-            $reference = $accessInfo["user"].'@'.$accessInfo["domain"].':' . $project->getReference().".git";
+            $reference = $accessInfo["user"] . '@' . $accessInfo["domain"] . ':' . $project->getReference() . ".git";
             $values['reference'] = $reference;
         }
 
@@ -264,11 +271,11 @@ class ProjectController extends PHPCI\Controller
         $form = $this->projectForm($values, 'edit/' . $projectId);
 
         if ($method != 'POST' || ($method == 'POST' && !$form->validate())) {
-            $view           = new b8\View('ProjectForm');
-            $view->type     = 'edit';
-            $view->project  = $project;
-            $view->form     = $form;
-            $view->key      = $values['pubkey'];
+            $view = new b8\View('ProjectForm');
+            $view->type = 'edit';
+            $view->project = $project;
+            $view->form = $form;
+            $view->key = $values['pubkey'];
 
             return $view->render();
         }
@@ -284,23 +291,25 @@ class ProjectController extends PHPCI\Controller
             'allow_public_status' => $this->getParam('allow_public_status', 0),
             'archived' => $this->getParam('archived', 0),
             'branch' => $this->getParam('branch', null),
+            'config_filename' => $this->getParam('config_filename', "phpci.yml"),
         );
 
         $project = $this->projectService->updateProject($project, $title, $type, $reference, $options);
 
         $response = new b8\Http\Response\RedirectResponse();
-        $response->setHeader('Location', PHPCI_URL.'project/view/' . $project->getId());
+        $response->setHeader('Location', PHPCI_URL . 'project/view/' . $project->getId());
+
         return $response;
     }
 
     /**
-    * Create add / edit project form.
-    */
+     * Create add / edit project form.
+     */
     protected function projectForm($values, $type = 'add')
     {
         $form = new Form();
         $form->setMethod('POST');
-        $form->setAction(PHPCI_URL.'project/' . $type);
+        $form->setAction(PHPCI_URL . 'project/' . $type);
         $form->addField(new Form\Element\Csrf('csrf'));
         $form->addField(new Form\Element\Hidden('pubkey'));
 
@@ -311,9 +320,9 @@ class ProjectController extends PHPCI\Controller
             'gitlab' => Lang::get('gitlab'),
             'remote' => Lang::get('remote'),
             'local' => Lang::get('local'),
-            'hg'    => Lang::get('hg'),
-            'svn'    => Lang::get('svn'),
-            );
+            'hg' => Lang::get('hg'),
+            'svn' => Lang::get('svn'),
+        );
 
         $field = Form\Element\Select::create('type', Lang::get('where_hosted'), true);
         $field->setPattern('^(github|bitbucket|gitlab|remote|local|hg|svn)');
@@ -348,6 +357,11 @@ class ProjectController extends PHPCI\Controller
         $field->setRows(6);
         $form->addField($field);
 
+        $field = Form\Element\Text::create('config_filename', Lang::get('config_filename'), true);
+        $field->setClass('form-control')->setContainerClass('form-group');
+        $field->setValue("phpci.yml");
+        $form->addField($field);
+
         $field = Form\Element\Text::create('branch', Lang::get('default_branch'), true);
         $field->setClass('form-control')->setContainerClass('form-group')->setValue('master');
         $form->addField($field);
@@ -371,24 +385,28 @@ class ProjectController extends PHPCI\Controller
         $form->addField($field);
 
         $form->setValues($values);
+
         return $form;
     }
 
     /**
-    * Get an array of repositories from Github's API.
-    */
+     * Get an array of repositories from Github's API.
+     */
     protected function githubRepositories()
     {
         $github = new Github();
 
         $response = new b8\Http\Response\JsonResponse();
         $response->setContent($github->getRepositories());
+
         return $response;
     }
 
     /**
      * Get the validator to use to check project references.
+     *
      * @param $values
+     *
      * @return callable
      */
     protected function getReferenceValidator($values)
@@ -399,23 +417,23 @@ class ProjectController extends PHPCI\Controller
             $validators = array(
                 'hg' => array(
                     'regex' => '/^(https?):\/\//',
-                    'message' => Lang::get('error_mercurial')
+                    'message' => Lang::get('error_mercurial'),
                 ),
                 'remote' => array(
                     'regex' => '/^(git|https?):\/\//',
-                    'message' => Lang::get('error_remote')
+                    'message' => Lang::get('error_remote'),
                 ),
                 'gitlab' => array(
                     'regex' => '`^(.*)@(.*):(.*)/(.*)\.git`',
-                    'message' => Lang::get('error_gitlab')
+                    'message' => Lang::get('error_gitlab'),
                 ),
                 'github' => array(
                     'regex' => '/^[a-zA-Z0-9_\-]+\/[a-zA-Z0-9_\-\.]+$/',
-                    'message' => Lang::get('error_github')
+                    'message' => Lang::get('error_github'),
                 ),
                 'bitbucket' => array(
                     'regex' => '/^[a-zA-Z0-9_\-]+\/[a-zA-Z0-9_\-\.]+$/',
-                    'message' => Lang::get('error_bitbucket')
+                    'message' => Lang::get('error_bitbucket'),
                 ),
             );
 

@@ -15,23 +15,23 @@ use b8\Store\Factory;
 class ProjectBase extends Model
 {
     /**
-    * @var array
-    */
+     * @var array
+     */
     public static $sleepable = array();
 
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $tableName = 'project';
 
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $modelName = 'Project';
 
     /**
-    * @var array
-    */
+     * @var array
+     */
     protected $data = array(
         'id' => null,
         'title' => null,
@@ -45,11 +45,12 @@ class ProjectBase extends Model
         'ssh_public_key' => null,
         'allow_public_status' => null,
         'archived' => null,
+        'config_filename' => null,
     );
 
     /**
-    * @var array
-    */
+     * @var array
+     */
     protected $getters = array(
         // Direct property getters:
         'id' => 'getId',
@@ -64,13 +65,14 @@ class ProjectBase extends Model
         'ssh_public_key' => 'getSshPublicKey',
         'allow_public_status' => 'getAllowPublicStatus',
         'archived' => 'getArchived',
+        'config_filename' => 'getFileConfig',
 
         // Foreign key getters:
     );
 
     /**
-    * @var array
-    */
+     * @var array
+     */
     protected $setters = array(
         // Direct property setters:
         'id' => 'setId',
@@ -85,13 +87,14 @@ class ProjectBase extends Model
         'ssh_public_key' => 'setSshPublicKey',
         'allow_public_status' => 'setAllowPublicStatus',
         'archived' => 'setArchived',
+        'config_filename' => 'setFileConfig',
 
         // Foreign key setters:
     );
 
     /**
-    * @var array
-    */
+     * @var array
+     */
     public $columns = array(
         'id' => array(
             'type' => 'int',
@@ -157,172 +160,189 @@ class ProjectBase extends Model
             'nullable' => true,
             'default' => null,
         ),
+        'config_filename' => array(
+            'type' => 'varchar',
+            'length' => 100,
+            'default' => null,
+        ),
     );
 
     /**
-    * @var array
-    */
+     * @var array
+     */
     public $indexes = array(
-            'PRIMARY' => array('unique' => true, 'columns' => 'id'),
-            'idx_project_title' => array('columns' => 'title'),
+        'PRIMARY' => array('unique' => true, 'columns' => 'id'),
+        'idx_project_title' => array('columns' => 'title'),
     );
 
     /**
-    * @var array
-    */
-    public $foreignKeys = array(
-    );
+     * @var array
+     */
+    public $foreignKeys = array();
 
     /**
-    * Get the value of Id / id.
-    *
-    * @return int
-    */
+     * Get the value of Id / id.
+     *
+     * @return int
+     */
     public function getId()
     {
-        $rtn    = $this->data['id'];
+        $rtn = $this->data['id'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of Title / title.
-    *
-    * @return string
-    */
+     * Get the value of Title / title.
+     *
+     * @return string
+     */
     public function getTitle()
     {
-        $rtn    = $this->data['title'];
+        $rtn = $this->data['title'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of Reference / reference.
-    *
-    * @return string
-    */
+     * Get the value of Reference / reference.
+     *
+     * @return string
+     */
     public function getReference()
     {
-        $rtn    = $this->data['reference'];
+        $rtn = $this->data['reference'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of Branch / branch.
-    *
-    * @return string
-    */
+     * Get the value of Branch / branch.
+     *
+     * @return string
+     */
     public function getBranch()
     {
-        $rtn    = $this->data['branch'];
+        $rtn = $this->data['branch'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of SshPrivateKey / ssh_private_key.
-    *
-    * @return string
-    */
+     * Get the value of SshPrivateKey / ssh_private_key.
+     *
+     * @return string
+     */
     public function getSshPrivateKey()
     {
-        $rtn    = $this->data['ssh_private_key'];
+        $rtn = $this->data['ssh_private_key'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of Type / type.
-    *
-    * @return string
-    */
+     * Get the value of Type / type.
+     *
+     * @return string
+     */
     public function getType()
     {
-        $rtn    = $this->data['type'];
+        $rtn = $this->data['type'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of AccessInformation / access_information.
-    *
-    * @return string
-    */
+     * Get the value of AccessInformation / access_information.
+     *
+     * @return string
+     */
     public function getAccessInformation()
     {
-        $rtn    = $this->data['access_information'];
+        $rtn = $this->data['access_information'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of LastCommit / last_commit.
-    *
-    * @return string
-    */
+     * Get the value of LastCommit / last_commit.
+     *
+     * @return string
+     */
     public function getLastCommit()
     {
-        $rtn    = $this->data['last_commit'];
+        $rtn = $this->data['last_commit'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of BuildConfig / build_config.
-    *
-    * @return string
-    */
+     * Get the value of BuildConfig / build_config.
+     *
+     * @return string
+     */
     public function getBuildConfig()
     {
-        $rtn    = $this->data['build_config'];
+        $rtn = $this->data['build_config'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of SshPublicKey / ssh_public_key.
-    *
-    * @return string
-    */
+     * Get the value of SshPublicKey / ssh_public_key.
+     *
+     * @return string
+     */
     public function getSshPublicKey()
     {
-        $rtn    = $this->data['ssh_public_key'];
+        $rtn = $this->data['ssh_public_key'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of AllowPublicStatus / allow_public_status.
-    *
-    * @return int
-    */
+     * Get the value of AllowPublicStatus / allow_public_status.
+     *
+     * @return int
+     */
     public function getAllowPublicStatus()
     {
-        $rtn    = $this->data['allow_public_status'];
+        $rtn = $this->data['allow_public_status'];
 
         return $rtn;
     }
 
     /**
-    * Get the value of Archived / archived.
-    *
-    * @return int
-    */
+     * Get the value of Archived / archived.
+     *
+     * @return int
+     */
     public function getArchived()
     {
-        $rtn    = $this->data['archived'];
+        $rtn = $this->data['archived'];
 
         return $rtn;
     }
 
     /**
-    * Set the value of Id / id.
-    *
-    * Must not be null.
-    * @param $value int
-    */
+     * Get the value of FileConfig / config_filename.
+     *
+     * @return string
+     */
+    public function getFileConfig()
+    {
+        $rtn = $this->data['config_filename'];
+
+        return $rtn;
+    }
+
+    /**
+     * Set the value of Id / id.
+     *
+     * Must not be null.
+     *
+     * @param $value int
+     */
     public function setId($value)
     {
         $this->_validateNotNull('Id', $value);
@@ -338,11 +358,12 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of Title / title.
-    *
-    * Must not be null.
-    * @param $value string
-    */
+     * Set the value of Title / title.
+     *
+     * Must not be null.
+     *
+     * @param $value string
+     */
     public function setTitle($value)
     {
         $this->_validateNotNull('Title', $value);
@@ -358,11 +379,12 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of Reference / reference.
-    *
-    * Must not be null.
-    * @param $value string
-    */
+     * Set the value of Reference / reference.
+     *
+     * Must not be null.
+     *
+     * @param $value string
+     */
     public function setReference($value)
     {
         $this->_validateNotNull('Reference', $value);
@@ -378,11 +400,12 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of Branch / branch.
-    *
-    * Must not be null.
-    * @param $value string
-    */
+     * Set the value of Branch / branch.
+     *
+     * Must not be null.
+     *
+     * @param $value string
+     */
     public function setBranch($value)
     {
         $this->_validateNotNull('Branch', $value);
@@ -398,10 +421,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of SshPrivateKey / ssh_private_key.
-    *
-    * @param $value string
-    */
+     * Set the value of SshPrivateKey / ssh_private_key.
+     *
+     * @param $value string
+     */
     public function setSshPrivateKey($value)
     {
         $this->_validateString('SshPrivateKey', $value);
@@ -416,11 +439,12 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of Type / type.
-    *
-    * Must not be null.
-    * @param $value string
-    */
+     * Set the value of Type / type.
+     *
+     * Must not be null.
+     *
+     * @param $value string
+     */
     public function setType($value)
     {
         $this->_validateNotNull('Type', $value);
@@ -436,10 +460,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of AccessInformation / access_information.
-    *
-    * @param $value string
-    */
+     * Set the value of AccessInformation / access_information.
+     *
+     * @param $value string
+     */
     public function setAccessInformation($value)
     {
         $this->_validateString('AccessInformation', $value);
@@ -454,10 +478,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of LastCommit / last_commit.
-    *
-    * @param $value string
-    */
+     * Set the value of LastCommit / last_commit.
+     *
+     * @param $value string
+     */
     public function setLastCommit($value)
     {
         $this->_validateString('LastCommit', $value);
@@ -472,10 +496,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of BuildConfig / build_config.
-    *
-    * @param $value string
-    */
+     * Set the value of BuildConfig / build_config.
+     *
+     * @param $value string
+     */
     public function setBuildConfig($value)
     {
         $this->_validateString('BuildConfig', $value);
@@ -490,10 +514,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of SshPublicKey / ssh_public_key.
-    *
-    * @param $value string
-    */
+     * Set the value of SshPublicKey / ssh_public_key.
+     *
+     * @param $value string
+     */
     public function setSshPublicKey($value)
     {
         $this->_validateString('SshPublicKey', $value);
@@ -508,11 +532,12 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of AllowPublicStatus / allow_public_status.
-    *
-    * Must not be null.
-    * @param $value int
-    */
+     * Set the value of AllowPublicStatus / allow_public_status.
+     *
+     * Must not be null.
+     *
+     * @param $value int
+     */
     public function setAllowPublicStatus($value)
     {
         $this->_validateNotNull('AllowPublicStatus', $value);
@@ -528,10 +553,10 @@ class ProjectBase extends Model
     }
 
     /**
-    * Set the value of Archived / archived.
-    *
-    * @param $value int
-    */
+     * Set the value of Archived / archived.
+     *
+     * @param $value int
+     */
     public function setArchived($value)
     {
         $this->_validateInt('Archived', $value);
@@ -543,6 +568,27 @@ class ProjectBase extends Model
         $this->data['archived'] = $value;
 
         $this->_setModified('archived');
+    }
+
+    /**
+     * Set the value of FileConfig / config_filename.
+     *
+     * Must not be null.
+     *
+     * @param $value string
+     */
+    public function setFileConfig($value)
+    {
+        $this->_validateNotNull('FileConfig', $value);
+        $this->_validateString('FileConfig', $value);
+
+        if ($this->data['config_filename'] === $value) {
+            return;
+        }
+
+        $this->data['config_filename'] = $value;
+
+        $this->_setModified('config_filename');
     }
 
     /**
